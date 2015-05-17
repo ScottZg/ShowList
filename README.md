@@ -1,7 +1,7 @@
 # ShowList
 This is a SlideList,When you tap a button , it will show
 
-#Use Methdod
+#How to use
     first step:
         you shold download This Demo，Then drag the ShowList folder to your project.
     second stop:
