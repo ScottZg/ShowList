@@ -8,21 +8,21 @@
 
 #import <UIKit/UIKit.h>
 
-@protocol SlideMenuDelegate <NSObject>
+@protocol ShowListDelegate <NSObject>
 
 -(void)getName:(NSString *)name  andId:(NSInteger)id withTag:(NSInteger)tag;
 
 @end
 
-@interface SlideMenu : UIView<UITableViewDelegate,UITableViewDataSource>
+@interface ShowList : UIView<UITableViewDelegate,UITableViewDataSource>
 
-@property(nonatomic,strong)id<SlideMenuDelegate>delegate;
+@property(nonatomic,strong)id<ShowListDelegate>delegate;
 @property(nonatomic,strong)NSMutableArray *listArr;   //container
 
 @property(nonatomic,strong)UITableView *listTableView;  //listTableView
 @property(nonatomic,strong)UIView *bottomView;    //this is bottom shadow view
 
-@property(nonatomic,assign)NSInteger listViewTag;   //it used when you use it at least two SlideMenu ,for tag it
+@property(nonatomic,assign)NSInteger listViewTag;   //it used when you use it at least two ShowList ,for tag it
 -(void)drawView;
 
 

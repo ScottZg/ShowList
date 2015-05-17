@@ -7,9 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ShowList.h"
+@interface ViewController : UIViewController<ShowListDelegate>
 
-@interface ViewController : UIViewController
+@property(nonatomic,strong)ShowList *listView;
+@property (weak, nonatomic) IBOutlet UIButton *selectDistanceButton;
 
-
+- (IBAction)showMenuAction:(UIButton *)sender;
+@property (weak, nonatomic) IBOutlet UIButton *showMenuButton;
+@property (weak, nonatomic) IBOutlet UIView *selectView;
 @end
 

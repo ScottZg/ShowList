@@ -1,25 +1,91 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="8yK-a0-CzF">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="tne-QT-ifu">
+        <!--下拉菜单选择实现-->
+        <scene sceneID="NIU-fL-7ER">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="" sceneMemberID="viewController">
+                <viewController id="K7y-ek-XUP" customClass="ViewController" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
-                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                        <viewControllerLayoutGuide type="top" id="y8q-O8-NBY"/>
+                        <viewControllerLayoutGuide type="bottom" id="1F4-mA-unC"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                    <view key="view" contentMode="scaleToFill" id="ynD-is-jmk">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Q5N-so-3oR">
+                                <rect key="frame" x="0.0" y="64" width="600" height="37"/>
+                                <subviews>
+                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z9N-86-6FG">
+                                        <rect key="frame" x="14" y="4" width="60" height="30"/>
+                                        <state key="normal" title="选择类型">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="showMenuAction:" destination="K7y-ek-XUP" eventType="touchUpInside" id="PgG-oq-0YS"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LDM-Jh-8m6">
+                                        <rect key="frame" x="532" y="4" width="60" height="30"/>
+                                        <state key="normal" title="选择距离">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="showMenuAction:" destination="K7y-ek-XUP" eventType="touchUpInside" id="GSf-ln-09r"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="LDM-Jh-8m6" secondAttribute="trailing" constant="8" id="4gw-1T-6Xc"/>
+                                    <constraint firstAttribute="centerY" secondItem="LDM-Jh-8m6" secondAttribute="centerY" constant="-0.5" id="RRP-o1-6G1"/>
+                                    <constraint firstItem="Z9N-86-6FG" firstAttribute="leading" secondItem="Q5N-so-3oR" secondAttribute="leading" constant="14" id="Z4H-n0-fuu"/>
+                                    <constraint firstAttribute="centerY" secondItem="Z9N-86-6FG" secondAttribute="centerY" constant="-0.5" id="aLL-LH-Esj"/>
+                                    <constraint firstAttribute="height" constant="37" id="w6P-UW-eR2"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="Q5N-so-3oR" secondAttribute="trailing" constant="-16" id="CNd-Dh-FTK"/>
+                            <constraint firstItem="Q5N-so-3oR" firstAttribute="leading" secondItem="ynD-is-jmk" secondAttribute="leadingMargin" constant="-16" id="Oye-Ed-d5U"/>
+                            <constraint firstItem="Q5N-so-3oR" firstAttribute="top" secondItem="y8q-O8-NBY" secondAttribute="bottom" id="ehb-qo-ZSu"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="下拉菜单选择实现" id="v34-uz-I7Y"/>
+                    <connections>
+                        <outlet property="selectDistanceButton" destination="LDM-Jh-8m6" id="JIZ-mk-v53"/>
+                        <outlet property="selectView" destination="Q5N-so-3oR" id="geB-pM-Yye"/>
+                        <outlet property="showMenuButton" destination="Z9N-86-6FG" id="ZXX-pa-c9x"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Uo8-nJ-Wij" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="1154" y="427"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Bgv-Ng-0Xl">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="8yK-a0-CzF" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="qi3-rd-Xe8">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="K7y-ek-XUP" kind="relationship" relationship="rootViewController" id="8hj-Xa-lpj"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FUK-Gs-ZFj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="342" y="427"/>
         </scene>
     </scenes>
 </document>

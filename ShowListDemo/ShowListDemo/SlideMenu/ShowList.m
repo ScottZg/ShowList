@@ -6,8 +6,8 @@
 //  Copyright (c) 2015年 marchsoft. All rights reserved.
 //
 
-#import "SlideMenu.h"
-@implementation SlideMenu
+#import "ShowList.h"
+@implementation ShowList
 {
     UIImageView *imageView;
 }

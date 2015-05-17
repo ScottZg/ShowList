@@ -14,6 +14,10 @@
 		565275501B081C48005F1800 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5652754F1B081C48005F1800 /* Images.xcassets */; };
 		565275531B081C48005F1800 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 565275511B081C48005F1800 /* LaunchScreen.xib */; };
 		5652755F1B081C48005F1800 /* ShowListDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5652755E1B081C48005F1800 /* ShowListDemoTests.m */; };
+		5652756E1B081C67005F1800 /* ShowList.m in Sources */ = {isa = PBXBuildFile; fileRef = 5652756A1B081C67005F1800 /* ShowList.m */; };
+		5652756F1B081C67005F1800 /* upslide.png in Resources */ = {isa = PBXBuildFile; fileRef = 5652756C1B081C67005F1800 /* upslide.png */; };
+		565275701B081C67005F1800 /* upslide@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5652756D1B081C67005F1800 /* upslide@2x.png */; };
+		565275721B081CD7005F1800 /* zg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 565275711B081CD7005F1800 /* zg.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +44,11 @@
 		565275581B081C48005F1800 /* ShowListDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ShowListDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5652755D1B081C48005F1800 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5652755E1B081C48005F1800 /* ShowListDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShowListDemoTests.m; sourceTree = "<group>"; };
+		565275691B081C67005F1800 /* ShowList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShowList.h; sourceTree = "<group>"; };
+		5652756A1B081C67005F1800 /* ShowList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShowList.m; sourceTree = "<group>"; };
+		5652756C1B081C67005F1800 /* upslide.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = upslide.png; sourceTree = "<group>"; };
+		5652756D1B081C67005F1800 /* upslide@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "upslide@2x.png"; sourceTree = "<group>"; };
+		565275711B081CD7005F1800 /* zg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = zg.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +90,7 @@
 		565275411B081C48005F1800 /* ShowListDemo */ = {
 			isa = PBXGroup;
 			children = (
+				565275681B081C67005F1800 /* ShowList */,
 				565275461B081C48005F1800 /* AppDelegate.h */,
 				565275471B081C48005F1800 /* AppDelegate.m */,
 				565275491B081C48005F1800 /* ViewController.h */,
@@ -96,6 +106,7 @@
 		565275421B081C48005F1800 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				565275711B081CD7005F1800 /* zg.jpg */,
 				565275431B081C48005F1800 /* Info.plist */,
 				565275441B081C48005F1800 /* main.m */,
 			);
@@ -117,6 +128,26 @@
 				5652755D1B081C48005F1800 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		565275681B081C67005F1800 /* ShowList */ = {
+			isa = PBXGroup;
+			children = (
+				565275691B081C67005F1800 /* ShowList.h */,
+				5652756A1B081C67005F1800 /* ShowList.m */,
+				5652756B1B081C67005F1800 /* upslide */,
+			);
+			name = ShowList;
+			path = SlideMenu;
+			sourceTree = "<group>";
+		};
+		5652756B1B081C67005F1800 /* upslide */ = {
+			isa = PBXGroup;
+			children = (
+				5652756C1B081C67005F1800 /* upslide.png */,
+				5652756D1B081C67005F1800 /* upslide@2x.png */,
+			);
+			path = upslide;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -199,8 +230,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5652756F1B081C67005F1800 /* upslide.png in Resources */,
 				5652754E1B081C48005F1800 /* Main.storyboard in Resources */,
+				565275701B081C67005F1800 /* upslide@2x.png in Resources */,
 				565275531B081C48005F1800 /* LaunchScreen.xib in Resources */,
+				565275721B081CD7005F1800 /* zg.jpg in Resources */,
 				565275501B081C48005F1800 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -219,6 +253,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5652756E1B081C67005F1800 /* ShowList.m in Sources */,
 				5652754B1B081C48005F1800 /* ViewController.m in Sources */,
 				565275481B081C48005F1800 /* AppDelegate.m in Sources */,
 				565275451B081C48005F1800 /* main.m in Sources */,
