@@ -1,8 +1,7 @@
 # ShowList
-This is a SlideList,When you tap a button , it will show
-# Show
-![iOS Simulator Screen Shot 2015年8月16日 下午3.57.05.png](https://ooo.0o0.ooo/2015/08/16/55d042fde662f.png "iOS Simulator Screen Shot 2015年8月16日 下午3.57.05.png")
-![iOS Simulator Screen Shot 2015年8月16日 下午3.57.02.png](https://ooo.0o0.ooo/2015/08/16/55d042ff83d6a.png "iOS Simulator Screen Shot 2015年8月16日 下午3.57.02.png")
+This is a SlideList,When you tap a button , it will show like that:   
+![iOS Simulator Screen Shot 2015年8月16日 下午3.57.02.png](https://ooo.0o0.ooo/2015/08/16/55d0436a07b1c.png "iOS Simulator Screen Shot 2015年8月16日 下午3.57.02.png")
+![iOS Simulator Screen Shot 2015年8月16日 下午3.57.05.png](https://ooo.0o0.ooo/2015/08/16/55d0436c1b3ae.png "iOS Simulator Screen Shot 2015年8月16日 下午3.57.05.png")
 #How to use
     first step:
         you shold download This Demo，Then drag the ShowList folder to your project.
