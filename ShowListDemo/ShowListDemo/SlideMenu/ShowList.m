@@ -7,65 +7,42 @@
 //
 
 #import "ShowList.h"
+
+@interface ShowList ()
+@property (nonatomic,strong)UIImageView *hideImageView;
+@end
 @implementation ShowList
-{
-    UIImageView *imageView;
-}
--(id)initWithFrame:(CGRect)frame
-{
-    if (self==[super initWithFrame:frame]) {
-//        self.backgroundColor = [UIColor lightGrayColor];
-        [self drawView];
+-(id)initWithFrame:(CGRect)frame {
+    self = [super initWithFrame:frame];
+    if (self) {
         self.hidden = YES;
     }
     return self;
 }
--(void)drawView
-{
-    _listTableView = [[UITableView alloc] initWithFrame:CGRectZero];
-    self.listTableView.dataSource = self;
-    self.listTableView.delegate = self;
-    _listTableView.scrollEnabled = YES;
-    _bottomView = [[UIView alloc] initWithFrame:CGRectZero];  //底部显示
-     self.listTableView.tableFooterView = [UIView new];
+
+-(void)hideView {
+    if (self.delegate) {
+         [self.delegate getName:nil andId:1 withTag:self.listViewTag];
+         [self setHiddeList:YES];
+    }
+   
     
-    imageView= [[UIImageView alloc] initWithFrame:CGRectZero];
-    imageView.image = [UIImage imageNamed:@"upslide"];
-    imageView.userInteractionEnabled = YES;
-    _listTableView.bounces = NO;   //设置没有橡皮糖效果
-    UITapGestureRecognizer *gets = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hideView)];
-    [imageView addGestureRecognizer:gets];
-    imageView.backgroundColor = [UIColor whiteColor];
-    [self addSubview:_listTableView];
-    [self addSubview:_bottomView];
-    [self.superview bringSubviewToFront:self];
-    
-//    UITapGestureRecognizer *gets = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hideView)];
-    [self.bottomView addGestureRecognizer:gets];
 }
--(void)hideView
-{
-    [_delegate getName:nil andId:1 withTag:self.listViewTag];
-    [self setHiddeList:YES];
-}
--(void)updateFrame
-{
-     _listTableView.frame = CGRectMake(0, 0, self.frame.size.width,0);
-     _bottomView.frame = CGRectMake(0,_listTableView.frame.size.height, self.frame.size.width,0);
+-(void)updateFrame {
+     self.listTableView.frame = CGRectMake(0, 0, self.frame.size.width,0);
+     self.bottomView.frame = CGRectMake(0,_listTableView.frame.size.height, self.frame.size.width,0);
     [UIView beginAnimations:nil context:NULL];
     [UIView setAnimationDuration:0.3];
 
           _listTableView.frame = CGRectMake(0, 0, self.frame.size.width,(_listArr.count+1)*44);
   
-    _bottomView.frame = CGRectMake(0,_listTableView.frame.size.height, self.frame.size.width, self.frame.size.height-_listTableView.frame.size.height);
-    _bottomView.backgroundColor = [UIColor lightGrayColor];
-    _bottomView.layer.opacity = 0.5f;
+    self.bottomView.frame = CGRectMake(0,_listTableView.frame.size.height, self.frame.size.width, self.frame.size.height-_listTableView.frame.size.height);
+    self.bottomView.backgroundColor = [UIColor lightGrayColor];
+    self.bottomView.layer.opacity = 0.5f;
     [UIView commitAnimations];
-    [_listTableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationBottom];
- 
+    [self.listTableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationBottom];
 }
--(void)setHiddeList:(BOOL)boo
-{
+-(void)setHiddeList:(BOOL)boo {
     if (self.hidden) {
         self.hidden = boo;
     }else
@@ -74,16 +51,13 @@
     }
 }
 #pragma mark - UITableViewDelegate && UITableViewDataSource
--(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
+-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
 }
--(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return _listArr.count+1;
 }
--(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     /*
      //you can add different types model to it differently by _listViewTag
     if (_listViewTag==1) {
@@ -100,15 +74,14 @@
         cell.tag = 1;   //if your _listArr is a model collection,you can set model'id as cell.tag.then at the delegate method,you can get the selected model'id
     }else   //add imge
     {
-        imageView.frame = CGRectMake(_listTableView.frame.size.width/2-16,5, 32, 32);
+        self.hideImageView.frame = CGRectMake(_listTableView.frame.size.width/2-16,5, 32, 32);
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        [cell addSubview:imageView];
+        [cell addSubview:self.hideImageView];
 
     }
         return cell;
 }
--(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     cell.tag = 1;
@@ -116,5 +89,41 @@
     [_delegate getName:cell.textLabel.text andId:cell.tag withTag:self.listViewTag];
    
     
+}
+#pragma mark - lazy load
+
+- (UITableView *)listTableView {
+    if (!_listTableView) {
+        _listTableView = [[UITableView alloc] initWithFrame:CGRectZero];
+        _listTableView.dataSource = self;
+        _listTableView.delegate = self;
+        _listTableView.scrollEnabled = YES;
+        _listTableView.tableFooterView = [UIView new];
+        [self addSubview:_listTableView];
+    }
+    return _listTableView;
+}
+- (UIImageView *)hideImageView {
+    if (!_hideImageView) {
+        _hideImageView = [UIImageView alloc];
+        _hideImageView= [[UIImageView alloc] initWithFrame:CGRectZero];
+        _hideImageView.image = [UIImage imageNamed:@"upslide"];
+        _hideImageView.userInteractionEnabled = YES;
+        _listTableView.bounces = NO;   //设置没有橡皮糖效果
+        UITapGestureRecognizer *gets = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hideView)];
+        [_hideImageView addGestureRecognizer:gets];
+        _hideImageView.backgroundColor = [UIColor whiteColor];
+
+    }
+    return _hideImageView;
+}
+- (UIView *)bottomView {
+    if (!_bottomView) {
+        _bottomView = [[UIView alloc] initWithFrame:CGRectZero];  //底部显示
+          UITapGestureRecognizer *gets = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hideView)];
+        [self addGestureRecognizer:gets];
+        [self insertSubview:self.bottomView belowSubview:self.listTableView];
+    }
+    return _bottomView;
 }
 @end

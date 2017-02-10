@@ -30,7 +30,6 @@
     
     //------------Second Step
     [self.view addSubview:_listView];
-    // Do any additional setup after loading the view, typically from a nib.
 }
 #pragma mark ButtonAction Method
 - (IBAction)showMenuAction:(UIButton *)sender {
@@ -39,8 +38,7 @@
         _listView.listViewTag = 1;   //set the listViewTag ,you can resolve your problem in different way
         _listView.listArr = [[NSMutableArray alloc] initWithObjects:@"智能排序",@"最新发布",@"火热兼职",@"已认证", nil];
         [_listView updateFrame];
-    }else if (sender.tag==2)
-    {
+    }else if (sender.tag==2) {
         [_listView setHiddeList:NO];
         _listView.listViewTag = 2;
         _listView.listArr = [[NSMutableArray alloc] initWithObjects:@"全部",@"500米",@"1000米",@"1500米",@"2000米", nil];
@@ -49,15 +47,15 @@
     
 }
 #pragma mark - ShowMenuDelegate
--(void)getName:(NSString *)name andId:(NSInteger)id withTag:(NSInteger)tag
-{
-    if(tag==1)
-    {
+-(void)getName:(NSString *)name andId:(NSInteger)id withTag:(NSInteger)tag {
+    if(tag==1) {
         NSLog(@"name:%@--id:%ld--------_listViewTag:%ld",name,(long)id,(long)tag);
-    }else if (tag==2)
-    {
+        return;
+    }
+    if (tag==2) {
         NSLog(@"name:%@--id:%ld--------_listViewTag:%ld",name,(long)id,(long)tag);
     }
-    
 }
+#pragma mark - Lazy load
+
 @end

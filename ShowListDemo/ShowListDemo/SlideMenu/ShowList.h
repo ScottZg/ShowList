@@ -23,7 +23,6 @@
 @property(nonatomic,strong)UIView *bottomView;    //this is bottom shadow view
 
 @property(nonatomic,assign)NSInteger listViewTag;   //it used when you use it at least two ShowList ,for tag it
--(void)drawView;
 
 
 

@@ -199,6 +199,7 @@
 				TargetAttributes = {
 					5652753E1B081C48005F1800 = {
 						CreatedOnToolsVersion = 6.3.1;
+						DevelopmentTeam = 64PCQK6645;
 					};
 					565275571B081C48005F1800 = {
 						CreatedOnToolsVersion = 6.3.1;
@@ -384,8 +385,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 64PCQK6645;
 				INFOPLIST_FILE = ShowListDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.shuquwangluo.ShowListDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -394,8 +397,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 64PCQK6645;
 				INFOPLIST_FILE = ShowListDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.shuquwangluo.ShowListDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -453,6 +458,7 @@
 				565275641B081C48005F1800 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		565275651B081C48005F1800 /* Build configuration list for PBXNativeTarget "ShowListDemoTests" */ = {
 			isa = XCConfigurationList;
@@ -461,6 +467,7 @@
 				565275671B081C48005F1800 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
